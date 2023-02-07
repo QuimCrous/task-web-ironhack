@@ -1,21 +1,43 @@
-/* :root {
-    --colorWhite: #ffffff;
-    --colorBlack: #000000;
-    --colorRed: red;
-    --fontSize-sm: 16px;
-    --fontFamily: 'Arial, Helvetica, sans-serif';
-    --fontTitle: 'Arial';
-    --fontBody: 'Helvetica';
-} */
+:root {
+  --colorWhite: #ffffff;
+  --colorBlack: #000000;
+  --colorRed: red;
+  --fontSize-sm: 16px;
+  --fontFamily: "Arial, Helvetica, sans-serif";
+  --fontTitle: "Arial";
+  --fontBody: "Helvetica";
+}
 
-/* SignIn Component */
+/* SignIn and SignUp Component */
+.container {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
 
-/* h1 {
-    color: var(--colorRed);
-} */
+.header {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  justify-content: center;
+  align-items: center;
+}
 
-/* SignUp Component */
+.form-sign-in {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  justify-content: center;
+  align-items: center;
+}
 
-/* Home view */
-
-/* Account View */
+.form-input {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
