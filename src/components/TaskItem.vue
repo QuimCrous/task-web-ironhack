@@ -1,26 +1,66 @@
 <template>
-<div class="container">
-    <h3>{{task.title}}</h3>
-    <button @click="deleteTask">Delete {{task.title}}</button>
-</div>
+  <div class="container">
+    <h3>{{ task.title }}</h3>
+    <p>{{ task.is_complete }}</p>
+    <p>{{ task.description }}</p>
+    <button @click="deleteTask">Delete {{ task.title }}</button>
+    <button @click="modifyIsCompleted">Complete Task (o no XD)</button>
+    <button @click="modifyTaskShow">Modify task</button>
+    <div v-if="modifyTaskBool">
+      <label>Title:</label><input type="text" v-model="title" />
+      <br />
+      <label>Description:</label><input type="text" v-model="description" />
+      <br />
+      <button @click="modifyContent">Modify!</button>
+    </div>
+  </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { useTaskStore } from '../stores/task';
-import { supabase } from '../supabase';
+import { ref, watchEffect } from "vue";
+import { useTaskStore } from "../stores/task";
+import { supabase } from "../supabase";
 
 const taskStore = useTaskStore();
 
+const boolean = ref(false);
+const modifyTaskBool = ref(false);
+const title = ref("");
+const description = ref("");
+
+watchEffect(() => {
+  if (props.task.is_complete === true) {
+    boolean.value = true;
+  } else {
+    boolean.value = false;
+  }
+});
+
 const props = defineProps({
-    task: Object,
+  task: Object,
 });
 
 // Función para borrar la tarea a través de la store. El problema que tendremos aquí (y en NewTask.vue) es que cuando modifiquemos la base de datos los cambios no se verán reflejados en el v-for de Home.vue porque no estamos modificando la variable tasks guardada en Home. Usad el emit para cambiar esto y evitar ningún page refresh.
-const deleteTask = async() => {
-    await taskStore.deleteTask(props.task.id);
+const deleteTask = async () => {
+  await taskStore.deleteTask(props.task.id);
 };
 
+const modifyIsCompleted = async () => {
+  await taskStore.modifyIsCompleted(props.task.id, !boolean.value);
+  console.log("click");
+};
+
+const modifyTaskShow = () => {
+  modifyTaskBool.value = !modifyTaskBool.value;
+  console.log(modifyTaskBool.value);
+};
+
+const modifyContent = async () => {
+  await taskStore.modifyContent(props.task.id, title.value, description.value);
+  console.log("click");
+  title.value = "";
+  description.value = "";
+};
 </script>
 
 <style></style>

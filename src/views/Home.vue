@@ -2,7 +2,7 @@
   <div class="wrapper">
     <Nav />
 
-    <div class="content"> 
+    <div class="content">
       <h3>Your account:</h3>
       <router-link to="/account">Account</router-link>
     </div>
@@ -13,12 +13,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onUpdated } from "vue";
 import { useTaskStore } from "../stores/task";
-import { useRouter } from 'vue-router';
-import Nav from '../components/Nav.vue';
-import NewTask from '../components/NewTask.vue';
-import TaskItem from '../components/TaskItem.vue';
+import { useRouter } from "vue-router";
+import Nav from "../components/Nav.vue";
+import NewTask from "../components/NewTask.vue";
+import TaskItem from "../components/TaskItem.vue";
 
 const taskStore = useTaskStore();
 
@@ -26,12 +26,15 @@ const taskStore = useTaskStore();
 const tasks = ref([]);
 
 // Creamos una función que conecte a la store para conseguir las tareas de supabase
-const getTasks = async() => {
+const getTasks = async () => {
   tasks.value = await taskStore.fetchTasks();
 };
 
 getTasks();
 
+onUpdated(() => {
+  getTasks();
+});
 </script>
 
 <style></style>

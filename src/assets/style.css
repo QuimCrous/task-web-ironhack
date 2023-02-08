@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
+
 :root {
   --colorWhite: #ffffff;
   --colorBlack: #000000;
@@ -8,36 +10,28 @@
   --fontBody: "Helvetica";
 }
 
-/* SignIn and SignUp Component */
+body {
+  background-color: rgb(248, 242, 220);
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* sign in sign up */
 .container {
-  margin: 20px;
   display: flex;
   flex-direction: column;
-  width: 95%;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-}
-
-.header {
-  display: flex;
-  flex-direction: column;
-  width: 70%;
   justify-content: center;
   align-items: center;
 }
 
-.form-sign-in {
-  display: flex;
-  flex-direction: column;
-  width: 70%;
-  justify-content: center;
-  align-items: center;
+.header-description {
+  text-align: center;
 }
 
-.form-input {
+.form {
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: normal;
 }

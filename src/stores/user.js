@@ -56,6 +56,7 @@ export const useUserStore = defineStore("user", {
       if (error) throw error;
       if (user) {
         this.user = user;
+
         /*const { data: profile } = await supabase
         .from('profiles')
         .select()

@@ -4,9 +4,9 @@ import { supabase } from "../supabase";
 import { useUserStore } from "./user";
 
 // Esta tienda utiliza el Composition API
-const tasksArr = ref(null);
 
 export const useTaskStore = defineStore("tasks", () => {
+  const tasksArr = ref(null);
   const fetchTasks = async () => {
     const { data: tasks } = await supabase
       .from("tasks")
@@ -15,7 +15,7 @@ export const useTaskStore = defineStore("tasks", () => {
     tasksArr.value = tasks;
     return tasksArr.value;
   };
-  
+
   const addTask = async (title, description) => {
     console.log(useUserStore().user.id);
     const { data, error } = await supabase.from("tasks").insert([
@@ -28,9 +28,57 @@ export const useTaskStore = defineStore("tasks", () => {
     ]);
   };
 
+  const modifyIsCompleted = async (id, boolean) => {
+    const { data, error } = await supabase
+      .from("tasks")
+      .update({
+        is_complete: boolean,
+      })
+      .match({ id: id });
+  };
+
+  const modifyContent = async (id, title, description) => {
+    if (title !== "" && description !== "") {
+      console.log("test1");
+      const { data, error } = await supabase
+        .from("tasks")
+        .update({
+          title: title,
+          description: description,
+        })
+        .match({ id: id });
+    }
+    if (title === "" && description !== "") {
+      console.log("test2");
+      const { data, error } = await supabase
+        .from("tasks")
+        .update({
+          description: description,
+        })
+        .match({ id: id });
+    }
+    if (title !== "" && description === "") {
+      console.log("test3");
+      const { data, error } = await supabase
+        .from("tasks")
+        .update({
+          title: title,
+        })
+        .match({ id: id });
+    }
+  };
+
   const deleteTask = async (id) => {
     const { data, error } = await supabase.from("tasks").delete().match({
       id: id,
     });
+  };
+  return {
+    fetchTasks,
+    addTask,
+    deleteTask,
+    tasksArr,
+    modifyIsCompleted,
+    modifyContent,
   };
 });
