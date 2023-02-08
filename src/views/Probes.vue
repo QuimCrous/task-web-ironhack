@@ -1,6 +1,6 @@
 <template>
   <Nav />
-  <div>
+  <div v-if="!editBoolean">
     <h1>Name(email): {{ username }}</h1>
     <h2>Website: {{ website }}</h2>
     <h2>True name: {{ name }}</h2>
@@ -13,7 +13,19 @@
       "
       alt="Profile picture"
     />
-    <button @click="editOption">Edit Profile</button>
+    <button @click="editOption">clicka clicka</button>
+  </div>
+  <div v-else>
+    <label for="">name</label
+    ><input type="text" name="" id="" v-model="newName" />
+    <label for="">website</label
+    ><input type="text" name="" id="" v-model="newWebsite" />
+    <label for="">avatar url</label
+    ><input type="text" name="" id="" v-model="newAvatarUrl" />
+    <label for="">nick name</label
+    ><input type="text" name="" id="" v-model="newNickName" />
+    <button @click="modifyProfile">yo que se</button>
+    <button @click="editOption">clicka clicka 2</button>
   </div>
 </template>
 
@@ -22,7 +34,6 @@ import { supabase } from "../supabase";
 import { onMounted, ref, toRefs } from "vue";
 import { useUserStore } from "../stores/user";
 import Nav from "../components/Nav.vue";
-import { useRouter } from "vue-router";
 
 const userStore = useUserStore();
 
@@ -32,7 +43,13 @@ const website = ref(null);
 const avatar_url = ref(null);
 const name = ref(null);
 const nick_name = ref(null);
-const redirect = useRouter();
+const editBoolean = ref(false);
+
+/* ------- */
+const newName = ref(null);
+const newWebsite = ref(null);
+const newNickName = ref(null);
+const newAvatarUrl = ref(null);
 
 onMounted(() => {
   getProfile();
@@ -60,8 +77,20 @@ async function signOut() {
 }
 
 const editOption = () => {
-  console.log("click");
-  redirect.push({ path: "/edit" });
+  editBoolean.value = !editBoolean.value;
+};
+
+const modifyProfile = async () => {
+  await userStore.modifyProfile(
+    newName.value,
+    newWebsite.value,
+    newNickName.value,
+    newAvatarUrl.value
+  );
+  newName.value = "";
+  newWebsite.value = "";
+  newNickName.value = "";
+  newAvatarUrl.value = "";
 };
 </script>
 

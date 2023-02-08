@@ -1,19 +1,15 @@
 <template>
   <Nav />
   <div>
-    <h1>Name(email): {{ username }}</h1>
-    <h2>Website: {{ website }}</h2>
-    <h2>True name: {{ name }}</h2>
-    <h2>Nickname: {{ nick_name }}</h2>
-    <img
-      :src="
-        avatar_url
-          ? avatar_url
-          : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png'
-      "
-      alt="Profile picture"
-    />
-    <button @click="editOption">Edit Profile</button>
+    <label for="">name</label
+    ><input type="text" name="" id="" v-model="newName" />
+    <label for="">website</label
+    ><input type="text" name="" id="" v-model="newWebsite" />
+    <label for="">avatar url</label
+    ><input type="text" name="" id="" v-model="newAvatarUrl" />
+    <label for="">nick name</label
+    ><input type="text" name="" id="" v-model="newNickName" />
+    <button @click="modifyProfile">Save changes</button>
   </div>
 </template>
 
@@ -32,6 +28,13 @@ const website = ref(null);
 const avatar_url = ref(null);
 const name = ref(null);
 const nick_name = ref(null);
+
+/* ------- */
+const newName = ref(null);
+const newWebsite = ref(null);
+const newNickName = ref(null);
+const newAvatarUrl = ref(null);
+
 const redirect = useRouter();
 
 onMounted(() => {
@@ -59,9 +62,18 @@ async function signOut() {
   }
 }
 
-const editOption = () => {
-  console.log("click");
-  redirect.push({ path: "/edit" });
+const modifyProfile = async () => {
+  await userStore.modifyProfile(
+    newName.value,
+    newWebsite.value,
+    newNickName.value,
+    newAvatarUrl.value
+  );
+  newName.value = "";
+  newWebsite.value = "";
+  newNickName.value = "";
+  newAvatarUrl.value = "";
+  redirect.push({ path: "/account" });
 };
 </script>
 

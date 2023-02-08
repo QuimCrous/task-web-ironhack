@@ -71,6 +71,30 @@ export const useUserStore = defineStore("user", {
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
     },
+
+    async modifyProfile(newName, newWebsite, newNickName, newAvatarUrl) {
+      if (newName === null) {
+        newName = this.profile.name;
+      }
+      if (newWebsite === null) {
+        newWebsite = this.profile.website;
+      }
+      if (newAvatarUrl === null) {
+        newAvatarUrl = this.profile.image_src;
+      }
+      if (newNickName === null) {
+        newNickName = this.profile.nick_name;
+      }
+      const { data, error } = await supabase
+        .from("profiles")
+        .update({
+          name: newName,
+          website: newWebsite,
+          image_src: newAvatarUrl,
+          nick_name: newNickName,
+        })
+        .match({ id: this.profile.id });
+    },
   },
 
   persist: {

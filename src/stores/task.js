@@ -39,7 +39,6 @@ export const useTaskStore = defineStore("tasks", () => {
 
   const modifyContent = async (id, title, description) => {
     if (title !== "" && description !== "") {
-      console.log("test1");
       const { data, error } = await supabase
         .from("tasks")
         .update({

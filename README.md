@@ -69,14 +69,17 @@ Para este proyecto he utilizado HTML
 - [x] Add logic to modify tasks (task store and TaskItem component)
 - [x] Add logic to change the tasks's status (task store and TaskItem component)
 - [x] Start writing the README file
-- [ ] Search how to upload image files to a table in supabase
-- [ ] Create profile table in supabase
+- [x] Create profile table in supabase
+- [x] Modify Account view to show the content of the user profile
+- [x] Create Edit view to edit the content of the user profile
 
 #### Day Three
 
 ###### Thursday 09, February 2023
 
-- [ ] Añadir flip-cards en el about-section
+- [ ] Search how to upload image files to a table in supabase
+- [ ] Find out how to remove the glitch when entering on Account view
+- [ ] Learn hot to use Tailwind and apply it to the project
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
