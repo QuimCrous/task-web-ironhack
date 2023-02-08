@@ -22,11 +22,9 @@
     <a href="#roadmap">Roadmap</a>
      <ul>
      <li><a href="#backlog">Back log</a></li>
-        <li><a href="#day-one">Lunes 23, Enero 2023</a></li>
-        <li><a href="#day-two">Martes 24, Enero 2023</a></li>
-        <li><a href="#day-three">Miercoles 25, Enero 2023</a></li>
-        <li><a href="#day-four">Jueves 26, Enero 2023</a></li>
-        <li><a href="#day-five">Viernes 27, Enero 2023</a></li>
+        <li><a href="#day-one">Tuesday 07, February 2023</a></li>
+        <li><a href="#day-two">Wednesday 08, February 2023</a></li>
+        <li><a href="#day-three">Thursday 09, February 2023</a></li>
       </ul>
     </li>
     <li><a href="#acerca">Acerca</a></li>
@@ -43,19 +41,82 @@
 
 <!-- <img src="./resources/readMe/screenshot.png" alt="Logo" width="100%" height="50%"> -->
 
-Éste es mi proyecto de página web como midterm project del bootcamp que estoy cursando. El proposito de este proyecto es sacar a relucir mis habilidades de
-programador frontend y ver el desarrollo que llevo desde que empecé este bootcamp.
+Éste es mi proyecto de página web
 
-He creado la web usando HTML, CSS y JavaScript. La página cuenta con:
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-- Un indice con diferentes secciones, un boton al final con la funcionalidad de devolver al usuario al principio de la página, una nav-bar con los botones para redireccionar
-  o enviar a una de las otras páginas, y un efecto skew que se activa al scrollear la web.
+### Construido Con
 
-- Una página de proyectos que nos muestra una sección principal donde se muestra un articulo y otras secciones. Los datos que se muestran son cargados mediante JavaScript
-  usando fetch para acceder a una API publica.
+Para este proyecto he utilizado HTML
 
-- Una página de contacto con un formulario que recoge los datos del usuario.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-- Una página de about donde hay una flip-card con informacion mia y varios iframes de canciones de YouTube.
+## Roadmap
+
+#### Day One
+
+###### Tuesday 07, February 2023
+
+- [x] Modify SignIn component
+- [x] Test the connection with supabase and confirm it's correct
+- [x] Add a user
+- [x] Add task and test it works correctly
+
+#### Day Two
+
+###### Wednesday 08, February 2023
+
+- [x] Add logic to modify tasks (task store and TaskItem component)
+- [x] Add logic to change the tasks's status (task store and TaskItem component)
+- [x] Start writing the README file
+- [ ] Search how to upload image files to a table in supabase
+- [ ] Create profile table in supabase
+
+#### Day Three
+
+###### Thursday 09, February 2023
+
+- [ ] Añadir flip-cards en el about-section
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- Acerca de mi -->
+
+## Acerca
+
+Joaquim Crous - [@raistbear](https://twitter.com/raistbear) - joaquimcrous@gmail.com
+
+Project Link: [https://github.com/QuimCrous](https://github.com/QuimCrous/midterm-ironhack)
+
+Presentation Link: [https://www.linkedin.com/in/joaquim-crous-mayné/](https://www.linkedin.com/in/joaquim-crous-mayné/)
+
+#### Experiencia académica
+
+- Backend Web Development Java - Ironhack Barcelona
+
+- Fronted Web Development - Iroonhack Barcelona
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGMENTS -->
+
+## Agradecimientos
+
+- Agradecer a todos mis compañeros de bootcamp por el apoyo y por compartir información entre nosotros para poder mejorar nuestros proyectos.
+- A nuestros profesores por ayudarnos en nuestras dudas y darnos soporte.
+- A mi hermano por facilitarme la tarea de buscar recursos y ayudarme a plantear la logica de ciertos scripts.
+- [Páginas de consulta](https://www.w3schools.com/js/default.asp)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Desafío Técnico
+
+- Uno de los grandes problemas
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Grande Error
+
+Mi gran error
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
