@@ -1,9 +1,9 @@
 <template>
   <Nav />
-  <div>
-    <h1>Name(email): {{ username }}</h1>
+  <div v-if="loading">
+    <h1>Email: {{ username }}</h1>
     <h2>Website: {{ website }}</h2>
-    <h2>True name: {{ name }}</h2>
+    <h2>Name: {{ name }}</h2>
     <h2>Nickname: {{ nick_name }}</h2>
     <img
       :src="
@@ -15,6 +15,7 @@
     />
     <button @click="editOption">Edit Profile</button>
   </div>
+  <div v-else>Cargando</div>
 </template>
 
 <script setup>
@@ -36,6 +37,9 @@ const redirect = useRouter();
 
 onMounted(() => {
   getProfile();
+  setTimeout(() => {
+    loading.value = true;
+  }, 1000);
 });
 
 async function getProfile() {

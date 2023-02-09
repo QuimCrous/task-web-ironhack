@@ -78,7 +78,7 @@ Para este proyecto he utilizado HTML
 ###### Thursday 09, February 2023
 
 - [ ] Search how to upload image files to a table in supabase
-- [ ] Find out how to remove the glitch when entering on Account view
+- [x] Find out how to remove the glitch when entering on Account view
 - [ ] Learn hot to use Tailwind and apply it to the project
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
