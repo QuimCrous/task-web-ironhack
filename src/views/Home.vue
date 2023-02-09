@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper bg-sky-100">
+  <div class="wrapper">
     <Nav />
 
     <div class="flex flex-col mt-8 mb-8 md:m-8">

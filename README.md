@@ -25,6 +25,7 @@
         <li><a href="#day-one">Tuesday 07, February 2023</a></li>
         <li><a href="#day-two">Wednesday 08, February 2023</a></li>
         <li><a href="#day-three">Thursday 09, February 2023</a></li>
+        <li><a href="#day-four">Friday 10, February 2023</a></li>
       </ul>
     </li>
     <li><a href="#acerca">Acerca</a></li>
@@ -77,9 +78,18 @@ Para este proyecto he utilizado HTML
 
 ###### Thursday 09, February 2023
 
-- [ ] Search how to upload image files to a table in supabase
 - [x] Find out how to remove the glitch when entering on Account view
-- [ ] Learn hot to use Tailwind and apply it to the project
+- [x] Learn how to use Tailwind and apply it to the project
+- [x] Style SignUp and SignIn components
+- [x] Style Home view and NewTask and TaskItem components
+
+#### Day Four
+
+###### Friday 10, February 2023
+
+- [ ] Style Account and Edit views
+- [ ] Add Logic to user store to upload images to avatar storage in supabase
+- [ ] Think what to add a task web application
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
