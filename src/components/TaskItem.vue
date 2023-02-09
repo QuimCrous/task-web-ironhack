@@ -1,17 +1,71 @@
 <template>
-  <div class="container">
-    <h3>{{ task.title }}</h3>
-    <p>{{ task.is_complete }}</p>
-    <p>{{ task.description }}</p>
-    <button @click="deleteTask">Delete {{ task.title }}</button>
-    <button @click="modifyIsCompleted">Complete Task (o no XD)</button>
-    <button @click="modifyTaskShow">Modify task</button>
+  <div class="flex flex-col justify-center">
+    <h3 class="block mb-4 text-3xl font-medium text-blue-900 text-center">
+      {{ task.title }}
+    </h3>
+    <!-- <p>{{ task.is_complete }}</p> -->
+    <p class="block mb-4 text-xl font-medium text-blue-900 text-justify">
+      {{ task.description }}
+    </p>
+    <div class="flex justify-around">
+      <button
+        @click="deleteTask"
+        class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+      >
+        Delete
+      </button>
+      <button
+        @click="modifyIsCompleted"
+        class="focus:outline-none text-white bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+      >
+        Complete Task
+      </button>
+      <button
+        @click="modifyTaskShow"
+        class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900"
+      >
+        Modify task
+      </button>
+    </div>
     <div v-if="modifyTaskBool">
-      <label>Title:</label><input type="text" v-model="title" />
+      <!-- <label>Title:</label><input type="text" v-model="title" />
       <br />
       <label>Description:</label><input type="text" v-model="description" />
       <br />
-      <button @click="modifyContent">Modify!</button>
+      <button @click="modifyContent">Modify!</button> -->
+      <div class="mb-6">
+        <label for="title" class="block mb-2 text-2xl font-medium text-blue-900"
+          >Title:</label
+        >
+        <input
+          type="text"
+          id="title"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          placeholder="Update Task Title"
+          v-model="title"
+          required
+        />
+      </div>
+      <label
+        for="description"
+        class="block mb-2 text-2xl font-medium text-blue-900"
+        >Description:</label
+      >
+      <textarea
+        id="description"
+        rows="4"
+        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+        v-model="description"
+        placeholder="Update Task Description"
+      ></textarea>
+      <div class="mb-4 mt-6">
+        <button
+          @click="modifyContent"
+          class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-2xl w-full sm:w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          Update!
+        </button>
+      </div>
     </div>
   </div>
 </template>

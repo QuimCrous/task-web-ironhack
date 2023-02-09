@@ -1,14 +1,27 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper bg-sky-100">
     <Nav />
 
-    <div class="content">
-      <h3>Your account:</h3>
-      <router-link to="/account">Account</router-link>
+    <div class="flex flex-col mt-8 mb-8 md:m-8">
+      <div class="content flex flex-row mb-4 text-2xl">
+        <h3 class="mr-4">Your account:</h3>
+        <router-link to="/account">Account</router-link>
+      </div>
+      <NewTask />
+      <div class="mt-8 pt-4 pb-4 mb-8 rounded-lg bg-sky-200">
+        <h1 class="block mb-2 text-3xl font-medium text-blue-900 text-center">
+          Tasks
+        </h1>
+        <div class="flex flex-row flex-wrap justify-around">
+          <TaskItem
+            v-for="task in tasks"
+            :key="task.id"
+            :task="task"
+            class="p-4 mt-4 w-96 bg-sky-300 rounded-lg"
+          />
+        </div>
+      </div>
     </div>
-    <NewTask />
-    <h1>Tasks:</h1>
-    <TaskItem v-for="task in tasks" :key="task.id" :task="task" />
   </div>
 </template>
 
