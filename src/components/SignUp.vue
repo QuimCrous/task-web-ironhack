@@ -1,61 +1,76 @@
 <template>
-  <div class="container">
-
-    <div class="header">
-      <div class="header-description">
-        <h3 class="header-title">Register to ToDo App</h3>
-        <p class="header-subtitle">Start organizing your tasks!</p>
+  <div
+    class="bg-sky-100 h-screen max-w-screen flex flex-col justify-center items-center"
+  >
+    <div class="border-4 p-5 border-sky-200 bg-sky-200 rounded-lg shadow-2xl">
+      <div>
+        <h3 class="text-2xl text-center m-5">Sign Up to DONE App</h3>
+        <p class="text-center m-3">Start organizing your tasks!</p>
       </div>
-    </div>
 
-    <form @submit.prevent="signUp" class="form-sign-in">
-      <div class="form">
-        <div class="form-input">
-          <label class="input-field-label">E-mail</label>
+      <form @submit.prevent="signIn">
+        <div class="mb-6">
+          <label
+            for="email"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >E-mail</label
+          >
           <input
             type="email"
-            class="input-field"
-            placeholder="example@gmail.com"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="email"
-            v-model="email"
+            placeholder="example@example.com"
             required
+            v-model="email"
           />
         </div>
-        <div class="form-input">
-          <label class="input-field-label">Password</label>
+        <div class="mb-6">
+          <label
+            for="password"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Password</label
+          >
           <input
             type="password"
-            class="input-field"
-            placeholder="**********"
             id="password"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="**********"
             v-model="password"
             required
           />
         </div>
-        <div class="form-input">
-          <label class="input-field-label">Confirm password</label>
+        <div class="mb-6">
+          <label
+            for="password"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Confirm Password</label
+          >
           <input
             type="password"
-            class="input-field"
-            placeholder="**********"
             id="confirmPassword"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="**********"
             v-model="confirmPassword"
             required
           />
         </div>
-        <button class="button" type="submit">Sign Up</button>
-        <p>
-          Have an account?
-          <PersonalRouter
-            :route="route"
-            :buttonText="buttonText"
-            class="sign-up-link"
-          />
-        </p>
-      </div>
-    </form>
-
-    <div v-show="errorMsg">{{errorMsg}}</div>
+        <div class="flex items-start mb-6"></div>
+        <button
+          type="submit"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          Sign Up
+        </button>
+      </form>
+      <p class="text-center m-8 ml-12 mr-12">
+        Have an account?
+        <PersonalRouter
+          :route="route"
+          :buttonText="buttonText"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        />
+      </p>
+    </div>
   </div>
 </template>
 
