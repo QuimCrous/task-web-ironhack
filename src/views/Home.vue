@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <Prueba />
+    <!-- <Prueba /> -->
     <Nav />
 
     <div class="flex flex-col mt-8 mb-8 md:m-8">
