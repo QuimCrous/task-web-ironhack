@@ -87,6 +87,7 @@ Para este proyecto he utilizado HTML
 
 ###### Friday 10, February 2023
 
+- [ ] Add a Modal component to Delete a Task
 - [ ] Style Account and Edit views
 - [ ] Add Logic to user store to upload images to avatar storage in supabase
 - [ ] Think what to add a task web application
