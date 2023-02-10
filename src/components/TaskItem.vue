@@ -15,7 +15,7 @@
     </p>
     <div class="flex justify-around">
       <button
-        @click="deleteTask"
+        @click="toggleModal"
         class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
       >
         Delete
@@ -68,6 +68,11 @@
         </button>
       </div>
     </div>
+    <DeleteModal
+      v-if="condicion"
+      @emit-delete="definitiveDelete"
+      @emit-cancel="toggleModal"
+    />
   </div>
 </template>
 
@@ -75,7 +80,7 @@
 import { ref, watchEffect } from "vue";
 import { useTaskStore } from "../stores/task";
 import { supabase } from "../supabase";
-import DeleteModel from "./DeleteModal.vue";
+import DeleteModal from "../components/DeleteModal.vue";
 
 const taskStore = useTaskStore();
 
@@ -84,6 +89,7 @@ const modifyTaskBool = ref(false);
 const title = ref("");
 const description = ref("");
 const isCompleted = ref("");
+const condicion = ref(false);
 
 watchEffect(() => {
   if (props.task.is_complete === true) {
@@ -100,6 +106,19 @@ const props = defineProps({
 // Función para borrar la tarea a través de la store. El problema que tendremos aquí (y en NewTask.vue) es que cuando modifiquemos la base de datos los cambios no se verán reflejados en el v-for de Home.vue porque no estamos modificando la variable tasks guardada en Home. Usad el emit para cambiar esto y evitar ningún page refresh.
 const deleteTask = async () => {
   await taskStore.deleteTask(props.task.id);
+};
+
+const definitiveDelete = () => {
+  //Esta función, se llama cuando recibimos la advertencia del emit.
+  //1º pasa a false la condición del v-if del componente modal. -> Transiciones. No es obligatorio.
+  //2º Llamamos a la función que ahora mismo hace de deleteTask().
+  condicion.value = !condicion.value;
+  deleteTask();
+};
+
+const toggleModal = () => {
+  //Esta función sirve tanto para enseñar el modal como para ocultarlo.
+  condicion.value = !condicion.value;
 };
 
 const modifyIsCompleted = async () => {

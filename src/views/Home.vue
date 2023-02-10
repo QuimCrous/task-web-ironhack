@@ -32,6 +32,7 @@ import { useRouter } from "vue-router";
 import Nav from "../components/Nav.vue";
 import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
+import DeleteModal from "../components/DeleteModal.vue";
 
 const taskStore = useTaskStore();
 
