@@ -10,6 +10,7 @@
     "@headlessui/vue": "^1.7.9",
     "@heroicons/vue": "^2.0.15",
     "@supabase/supabase-js": "^1.31.1",
+    "flowbite": "^1.6.3",
     "moment": "^2.29.4",
     "pinia": "^2.0.17",
     "pinia-plugin-persist": "^1.0.0",
