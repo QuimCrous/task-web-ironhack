@@ -1,10 +1,16 @@
 <template>
   <div class="flex flex-col justify-center">
-    <h3 class="block mb-4 text-3xl font-medium text-blue-900 text-center">
+    <h3
+      class="block mb-4 text-3xl font-medium text-blue-900 text-center"
+      :class="isCompleted"
+    >
       {{ task.title }}
     </h3>
     <!-- <p>{{ task.is_complete }}</p> -->
-    <p class="block mb-4 text-xl font-medium text-blue-900 text-justify">
+    <p
+      class="block mb-4 text-xl font-medium text-blue-900 text-justify"
+      :class="isCompleted"
+    >
       {{ task.description }}
     </p>
     <div class="flex justify-around">
@@ -28,11 +34,6 @@
       </button>
     </div>
     <div v-if="modifyTaskBool">
-      <!-- <label>Title:</label><input type="text" v-model="title" />
-      <br />
-      <label>Description:</label><input type="text" v-model="description" />
-      <br />
-      <button @click="modifyContent">Modify!</button> -->
       <div class="mb-6">
         <label for="title" class="block mb-2 text-2xl font-medium text-blue-900"
           >Title:</label
@@ -74,6 +75,7 @@
 import { ref, watchEffect } from "vue";
 import { useTaskStore } from "../stores/task";
 import { supabase } from "../supabase";
+import DeleteModel from "./DeleteModal.vue";
 
 const taskStore = useTaskStore();
 
@@ -81,6 +83,7 @@ const boolean = ref(false);
 const modifyTaskBool = ref(false);
 const title = ref("");
 const description = ref("");
+const isCompleted = ref("");
 
 watchEffect(() => {
   if (props.task.is_complete === true) {
@@ -115,6 +118,14 @@ const modifyContent = async () => {
   title.value = "";
   description.value = "";
 };
+
+watchEffect(() => {
+  if (boolean.value === true) {
+    isCompleted.value = "text-green-600 line-through";
+  } else {
+    isCompleted.value = "";
+  }
+});
 </script>
 
 <style></style>
