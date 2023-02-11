@@ -34,7 +34,6 @@ import Nav from "../components/Nav.vue";
 import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
 import DeleteModal from "../components/DeleteModal.vue";
-import Prueba from "../components/Prueba.vue";
 
 const taskStore = useTaskStore();
 

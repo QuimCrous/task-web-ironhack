@@ -124,6 +124,8 @@ const signOut = async () => {
   } catch (error) {}
 };
 
+// Function created to show the menu when hamburguer menu is clicked, cause aria-controller doesn't work correctly and i had to refresh the web to make it work
+
 const showList = () => {
   hiddenBoolean.value = !hiddenBoolean.value;
 };
