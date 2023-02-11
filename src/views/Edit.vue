@@ -67,7 +67,7 @@
         <label for="">avatar url</label
         ><input type="text" name="" id="" v-model="newAvatarUrl" />
         <label for="">nick name</label
-        ><input type="text" name="" id="" v-model="newNickName" />
+        ><input type="text" name="" id="" v-model="path" />
         <button @click="modifyProfile">Save changes</button>
       </div>
     </div>
@@ -98,6 +98,7 @@ const newWebsite = ref(null);
 const newNickName = ref(null);
 const newAvatarUrl = ref(null);
 const imageShow = ref(false);
+const path = ref(null);
 
 const redirect = useRouter();
 
@@ -131,8 +132,9 @@ const modifyProfile = async () => {
     newName.value,
     newWebsite.value,
     newNickName.value,
-    newAvatarUrl.value
+    path.value
   );
+  console.log(path.value);
   newName.value = "";
   newWebsite.value = "";
   newNickName.value = "";
@@ -156,6 +158,7 @@ const uploadAvatar = async (evt) => {
     .upload(filePath, file, { upsert: false });
 
   newAvatarUrl.value = filePath;
+  path.value = filePath;
   const { data, error } = await supabase.storage
     .from("avatars")
     .download(filePath);

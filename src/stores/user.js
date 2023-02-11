@@ -7,6 +7,7 @@ export const useUserStore = defineStore("user", {
   state: () => ({
     user: null,
     profile: null,
+    avatarPath: null,
   }),
   actions: {
     async fetchUser() {
@@ -18,9 +19,19 @@ export const useUserStore = defineStore("user", {
           .select()
           .match({ user_id: this.user.id });
 
-        if (profile) this.profile = profile[0];
+        if (profile) {
+          this.profile = profile[0];
+          console.log("mes tests", this.profile.image_src);
+          const { data, error } = await supabase.storage
+            .from("avatars")
+            .download(this.profile.image_src);
+          if (data) this.avatarPath = URL.createObjectURL(data);
+        }
+
         console.log("user in store: ", this.user);
         console.log("profile in store: ", this.profile);
+        console.log("YAS QUEEN");
+        console.log("patata", this.avatarPath);
       }
     },
 

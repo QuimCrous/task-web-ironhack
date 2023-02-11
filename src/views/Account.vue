@@ -85,7 +85,7 @@ onMounted(() => {
 async function getProfile() {
   await userStore.fetchUser();
   username.value = userStore.profile.username;
-  avatar_url.value = userStore.profile.image_src;
+  avatar_url.value = userStore.avatarPath;
   website.value = userStore.profile.website;
   name.value = userStore.profile.name;
   nick_name.value = userStore.profile.nick_name;
