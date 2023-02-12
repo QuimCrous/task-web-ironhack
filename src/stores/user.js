@@ -21,7 +21,6 @@ export const useUserStore = defineStore("user", {
 
         if (profile) {
           this.profile = profile[0];
-          console.log("mes tests", this.profile.image_src);
           const { data, error } = await supabase.storage
             .from("avatars")
             .download(this.profile.image_src);
@@ -30,8 +29,6 @@ export const useUserStore = defineStore("user", {
 
         console.log("user in store: ", this.user);
         console.log("profile in store: ", this.profile);
-        console.log("YAS QUEEN");
-        console.log("patata", this.avatarPath);
       }
     },
 

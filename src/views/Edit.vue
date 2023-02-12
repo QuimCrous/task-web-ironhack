@@ -14,6 +14,7 @@
           type="text"
           id="small-input"
           class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          v-model="newName"
         />
       </div>
       <div>
@@ -26,6 +27,7 @@
           type="text"
           id="small-input"
           class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          v-model="newNickName"
         />
       </div>
       <div>
@@ -38,6 +40,7 @@
           type="text"
           id="small-input"
           class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          v-model="newWebsite"
         />
       </div>
       <div>
@@ -46,29 +49,29 @@
           for="file_input"
           >Upload file:</label
         >
-        <div v-if="imageShow">
+        <div v-if="uploaded">
           <label
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             for="file_input"
             >file uploaded!</label
           >
-          <img :src="newAvatarUrl" alt="upload image" />
         </div>
+        <img :src="avatar_url" alt="upload image" />
+
         <input
           class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
           id="file_input"
           type="file"
           @change="uploadAvatar"
         />
-        <label for="">name</label
-        ><input type="text" name="" id="" v-model="newName" />
-        <label for="">website</label
-        ><input type="text" name="" id="" v-model="newWebsite" />
-        <label for="">avatar url</label
-        ><input type="text" name="" id="" v-model="newAvatarUrl" />
-        <label for="">nick name</label
-        ><input type="text" name="" id="" v-model="path" />
-        <button @click="modifyProfile">Save changes</button>
+        <div class="flex justify-center items-center mt-4">
+          <button
+            @click="modifyProfile"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Save changes
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -96,8 +99,7 @@ const files = ref();
 const newName = ref(null);
 const newWebsite = ref(null);
 const newNickName = ref(null);
-const newAvatarUrl = ref(null);
-const imageShow = ref(false);
+const uploaded = ref(false);
 const path = ref(null);
 
 const redirect = useRouter();
@@ -109,7 +111,7 @@ onMounted(() => {
 async function getProfile() {
   await userStore.fetchUser();
   username.value = userStore.profile.username;
-  avatar_url.value = userStore.profile.image_src;
+  avatar_url.value = userStore.avatarPath;
   website.value = userStore.profile.website;
   name.value = userStore.profile.name;
   nick_name.value = userStore.profile.nick_name;
@@ -138,7 +140,6 @@ const modifyProfile = async () => {
   newName.value = "";
   newWebsite.value = "";
   newNickName.value = "";
-  newAvatarUrl.value = "";
   redirect.push({ path: "/account" });
 };
 
@@ -157,13 +158,12 @@ const uploadAvatar = async (evt) => {
     .from("avatars")
     .upload(filePath, file, { upsert: false });
 
-  newAvatarUrl.value = filePath;
   path.value = filePath;
   const { data, error } = await supabase.storage
     .from("avatars")
     .download(filePath);
-  newAvatarUrl.value = URL.createObjectURL(data);
-  imageShow.value = true;
+  avatar_url.value = URL.createObjectURL(data);
+  uploaded.value = true;
 };
 </script>
 

@@ -37,7 +37,30 @@
             placeholder="**********"
             v-model="password"
             required
+            v-if="!showPassword"
           />
+          <input
+            type="text"
+            id="passwordShowed"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="**********"
+            v-model="password"
+            required
+            v-else
+          />
+          <div class="control">
+            <button class="button" @click.prevent="toggleShow">
+              <span class="icon is-small is-right">
+                <i
+                  class="fas"
+                  :class="{
+                    'fa-eye-slash': showPassword,
+                    'fa-eye': !showPassword,
+                  }"
+                ></i>
+              </span>
+            </button>
+          </div>
         </div>
         <div class="mb-6">
           <label
@@ -52,6 +75,16 @@
             placeholder="**********"
             v-model="confirmPassword"
             required
+            v-if="!showPassword"
+          />
+          <input
+            type="text"
+            id="confirmPassword"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="**********"
+            v-model="confirmPassword"
+            required
+            v-else
           />
         </div>
         <div class="flex items-start mb-6"></div>
@@ -90,6 +123,7 @@ const buttonText = "Sign In";
 const email = ref("");
 const password = ref("");
 const confirmPassword = ref("");
+const showPassword = ref(false);
 
 // Error Message
 const errorMsg = ref("");
@@ -116,6 +150,10 @@ const signUp = async () => {
     return;
   }
   errorMsg.value = "error";
+};
+
+const toggleShow = () => {
+  showPassword.value = !showPassword.value;
 };
 </script>
 

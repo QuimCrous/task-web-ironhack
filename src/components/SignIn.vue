@@ -39,7 +39,30 @@
             placeholder="**********"
             v-model="password"
             required
+            v-if="!showPassword"
           />
+          <input
+            type="text"
+            id="passwordShowed"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="**********"
+            v-model="password"
+            required
+            v-else
+          />
+          <div class="control">
+            <button class="button" @click.prevent="toggleShow">
+              <span class="icon is-small is-right">
+                <i
+                  class="fas"
+                  :class="{
+                    'fa-eye-slash': showPassword,
+                    'fa-eye': !showPassword,
+                  }"
+                ></i>
+              </span>
+            </button>
+          </div>
         </div>
         <div class="flex items-start mb-6"></div>
         <button
@@ -83,6 +106,8 @@ const redirect = useRouter();
 // Error Message
 const errorMsg = ref("");
 
+const showPassword = ref(false);
+
 // Arrow function to Signin user to supaBase
 const signIn = async () => {
   try {
@@ -98,6 +123,10 @@ const signIn = async () => {
     }, 5000);
   }
   errorMsg.value = "error";
+};
+
+const toggleShow = () => {
+  showPassword.value = !showPassword.value;
 };
 </script>
 

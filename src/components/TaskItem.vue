@@ -136,6 +136,7 @@ const modifyContent = async () => {
   console.log("click");
   title.value = "";
   description.value = "";
+  modifyTaskBool.value = !modifyTaskBool.value;
 };
 
 watchEffect(() => {
