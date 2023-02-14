@@ -13,7 +13,7 @@
             alt="Done Logo"
           />
           <img
-            src="/public/Icono letras.png"
+            src="/public/Icono_letras.png"
             class="h-12 mr-3 sm:h-16"
             alt="Done Logo"
           />
