@@ -13,12 +13,19 @@
         <h1 class="block mb-2 text-3xl font-medium text-blue-900 text-center">
           Tasks
         </h1>
+        <div
+          v-if="showDelete"
+          class="bg-green-200 text-2xl m-4 text-center text-green-700"
+        >
+          Task deleted correctly!!
+        </div>
         <div class="flex flex-row flex-wrap justify-around">
           <TaskItem
             v-for="task in tasks"
             :key="task.id"
             :task="task"
             class="p-4 mt-4 w-96 bg-sky-300 rounded-lg"
+            @emit-delete-complete="showDeleteComplete"
           />
         </div>
       </div>
@@ -39,10 +46,18 @@ const taskStore = useTaskStore();
 
 // Variable para guardar las tareas de supabase
 const tasks = ref([]);
+const showDelete = ref(false);
 
 // Creamos una función que conecte a la store para conseguir las tareas de supabase
 const getTasks = async () => {
   tasks.value = await taskStore.fetchTasks();
+};
+
+const showDeleteComplete = () => {
+  showDelete.value = !showDelete.value;
+  setTimeout(() => {
+    showDelete.value = !showDelete.value;
+  }, 5000);
 };
 
 getTasks();

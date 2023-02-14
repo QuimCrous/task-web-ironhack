@@ -90,6 +90,7 @@ const title = ref("");
 const description = ref("");
 const isCompleted = ref("");
 const condicion = ref(false);
+const emits = defineEmits(["emitDeleteComplete"]);
 
 watchEffect(() => {
   if (props.task.is_complete === true) {
@@ -113,6 +114,7 @@ const definitiveDelete = () => {
   //1º pasa a false la condición del v-if del componente modal. -> Transiciones. No es obligatorio.
   //2º Llamamos a la función que ahora mismo hace de deleteTask().
   condicion.value = !condicion.value;
+  emits("emitDeleteComplete");
   deleteTask();
 };
 
