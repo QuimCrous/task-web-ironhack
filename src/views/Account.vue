@@ -99,9 +99,6 @@ const redirect = useRouter();
 
 onMounted(() => {
   getProfile();
-  // setTimeout(() => {
-  //   loading.value = true;
-  // }, 1000);
 });
 
 async function getProfile() {

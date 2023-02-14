@@ -8,14 +8,15 @@
       >
         <router-link to="/" class="flex items-center">
           <img
-            src="https://flowbite.com/docs/images/logo.svg"
+            src="/public/Icono.png"
             class="h-6 mr-3 sm:h-9"
             alt="Done Logo"
           />
-          <span
-            class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
-            >Done!</span
-          >
+          <img
+            src="/public/Icono letras.png"
+            class="h-12 mr-3 sm:h-16"
+            alt="Done Logo"
+          />
         </router-link>
         <button
           @click="showList"

@@ -3,13 +3,13 @@
     <!-- <Prueba /> -->
     <Nav />
 
-    <div class="flex flex-col mt-8 mb-8 md:m-8">
+    <div class="flex flex-col mt-8 mb-8 md:m-8 justify-center items-center">
       <div class="content flex flex-row mb-4 text-2xl">
         <h3 class="mr-4">Your account:</h3>
         <router-link to="/account">Account</router-link>
       </div>
       <NewTask />
-      <div class="mt-8 pt-4 pb-4 mb-8 rounded-lg bg-sky-200">
+      <div class="mt-24 pt-10 pb-4 mb-8 pb-16 rounded-lg bg-sky-200">
         <h1 class="block mb-2 text-3xl font-medium text-blue-900 text-center">
           Tasks
         </h1>
@@ -19,12 +19,14 @@
         >
           Task deleted correctly!!
         </div>
-        <div class="flex flex-row flex-wrap justify-around">
+        <div
+          class="flex flex-row flex-wrap justify-around w-[400px] pl-2 md:w-auto md:pl-10 md:pr-10"
+        >
           <TaskItem
             v-for="task in tasks"
             :key="task.id"
             :task="task"
-            class="p-4 mt-4 w-96 bg-sky-300 rounded-lg"
+            class="p-4 m-4 w-80 bg-sky-300 rounded-lg"
             @emit-delete-complete="showDeleteComplete"
           />
         </div>
