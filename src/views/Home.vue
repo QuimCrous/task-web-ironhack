@@ -9,10 +9,26 @@
         <router-link to="/account">Account</router-link>
       </div>
       <NewTask />
-      <div class="mt-24 pt-10 pb-4 mb-8 pb-16 rounded-lg bg-sky-200">
+      <div class="mt-24 pt-10 pb-4 mb-8 pb-16 rounded-lg bg-sky-200 shadow-2xl">
         <h1 class="block mb-2 text-3xl font-medium text-blue-900 text-center">
           Tasks
         </h1>
+        <div class="flex flex-col items-center">
+          <label
+            for="small"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Task status select:</label
+          >
+          <select
+            v-model="showSelector"
+            id="small"
+            class="block w-80 p-2 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          >
+            <option selected value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="incompleted">Incompleted</option>
+          </select>
+        </div>
         <div
           v-if="showDelete"
           class="bg-green-200 text-2xl m-4 text-center text-green-700"
@@ -23,7 +39,7 @@
           class="flex flex-row flex-wrap justify-around w-[400px] pl-2 md:w-auto md:pl-10 md:pr-10"
         >
           <TaskItem
-            v-for="task in tasks"
+            v-for="task in showTasks"
             :key="task.id"
             :task="task"
             class="p-4 m-4 w-80 bg-sky-300 rounded-lg"
@@ -36,7 +52,7 @@
 </template>
 
 <script setup>
-import { ref, onUpdated } from "vue";
+import { ref, onUpdated, watchEffect } from "vue";
 import { useTaskStore } from "../stores/task";
 import { useRouter } from "vue-router";
 import Nav from "../components/Nav.vue";
@@ -49,18 +65,36 @@ const taskStore = useTaskStore();
 // Variable para guardar las tareas de supabase
 const tasks = ref([]);
 const showDelete = ref(false);
+const completedTasks = ref([]);
+const incompletedTasks = ref([]);
+const showSelector = ref("all");
+const showTasks = ref([]);
 
 // Creamos una función que conecte a la store para conseguir las tareas de supabase
 const getTasks = async () => {
   tasks.value = await taskStore.fetchTasks();
+  completedTasks.value = await taskStore.fetchCompletedTasks();
+  incompletedTasks.value = await taskStore.fetchIncompletedTasks();
 };
 
 const showDeleteComplete = () => {
   showDelete.value = !showDelete.value;
   setTimeout(() => {
     showDelete.value = !showDelete.value;
-  }, 5000);
+  }, 3000);
 };
+
+watchEffect(() => {
+  if (showSelector.value === "completed") {
+    showTasks.value = completedTasks.value;
+  }
+  if (showSelector.value === "all") {
+    showTasks.value = tasks.value;
+  }
+  if (showSelector.value === "incompleted") {
+    showTasks.value = incompletedTasks.value;
+  }
+});
 
 getTasks();
 

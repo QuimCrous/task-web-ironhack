@@ -16,6 +16,26 @@ export const useTaskStore = defineStore("tasks", () => {
     return tasksArr.value;
   };
 
+  const fetchCompletedTasks = async () => {
+    const { data: tasks } = await supabase
+      .from("tasks")
+      .select("*")
+      .eq("is_complete", true)
+      .order("id", { ascending: false });
+    tasksArr.value = tasks;
+    return tasksArr.value;
+  };
+
+  const fetchIncompletedTasks = async () => {
+    const { data: tasks } = await supabase
+      .from("tasks")
+      .select("*")
+      .eq("is_complete", false)
+      .order("id", { ascending: false });
+    tasksArr.value = tasks;
+    return tasksArr.value;
+  };
+
   const addTask = async (title, description) => {
     console.log(useUserStore().user.id);
     const { data, error } = await supabase.from("tasks").insert([
@@ -79,5 +99,7 @@ export const useTaskStore = defineStore("tasks", () => {
     tasksArr,
     modifyIsCompleted,
     modifyContent,
+    fetchCompletedTasks,
+    fetchIncompletedTasks,
   };
 });

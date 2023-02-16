@@ -2,7 +2,7 @@
   <Nav />
   <div class="flex justify-center items-center mt-10">
     <div
-      class="w-[400px] px-[30px] py-[50px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+      class="w-[400px] px-[30px] py-[50px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 shadow-2xl"
     >
       <div>
         <div

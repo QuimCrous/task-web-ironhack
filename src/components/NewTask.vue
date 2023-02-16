@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[400px] px-[30px] py-[50px] bg-sky-200 rounded-lg">
+  <div class="w-[400px] px-[30px] py-[50px] bg-sky-200 rounded-lg shadow-2xl">
     <h2 class="block mb-2 text-3xl font-medium text-blue-900 text-center">
       Add a task
     </h2>

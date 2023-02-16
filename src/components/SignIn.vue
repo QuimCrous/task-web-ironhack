@@ -51,7 +51,7 @@
             v-else
           />
           <div class="control">
-            <button class="button" @click.prevent="toggleShow">
+            <p class="button" @click.prevent="toggleShow">
               <span class="icon is-small is-right">
                 <i
                   class="fas"
@@ -61,7 +61,7 @@
                   }"
                 ></i>
               </span>
-            </button>
+            </p>
           </div>
         </div>
         <div class="flex items-start mb-6"></div>

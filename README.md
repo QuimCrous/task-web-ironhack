@@ -87,10 +87,26 @@ Para este proyecto he utilizado HTML
 
 ###### Friday 10, February 2023
 
-- [ ] Add a Modal component to Delete a Task
-- [ ] Style Account and Edit views
-- [ ] Add Logic to user store to upload images to avatar storage in supabase
+- [x] Add a Modal component to Delete a Task
+- [x] Style Account and Edit views
+- [x] Add Logic to user store to upload images to avatar storage in supabase
 - [ ] Think what to add a task web application
+
+#### Day Five
+
+###### Wednesday 15, February 2023
+
+- [x] Update README
+- [x] Restyle all components
+- [x] Added Filter option by status to tasks
+- [x] Added button to show password to user
+
+#### Day Six
+
+###### Thursday 16, February 2023
+
+- [ ] Add CompleteWhenDate column to task table
+- [ ] Create a Calendar component to show a calendar the days that Task are completed (color more intense when more task are completed)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
