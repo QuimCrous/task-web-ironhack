@@ -42,7 +42,7 @@
             v-for="task in showTasks"
             :key="task.id"
             :task="task"
-            class="p-4 m-4 w-80 bg-sky-300 rounded-lg"
+            class="p-4 m-4 w-80 bg-sky-300 rounded-lg shadow-2xl"
             @emit-delete-complete="showDeleteComplete"
           />
         </div>

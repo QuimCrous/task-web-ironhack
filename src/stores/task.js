@@ -49,12 +49,26 @@ export const useTaskStore = defineStore("tasks", () => {
   };
 
   const modifyIsCompleted = async (id, boolean) => {
-    const { data, error } = await supabase
-      .from("tasks")
-      .update({
-        is_complete: boolean,
-      })
-      .match({ id: id });
+    console.log(boolean);
+    if (boolean === true) {
+      const date = new Date();
+      console.log(date);
+      const { data, error } = await supabase
+        .from("tasks")
+        .update({
+          is_complete: boolean,
+          complete_when: date,
+        })
+        .match({ id: id });
+    } else {
+      const { data, error } = await supabase
+        .from("tasks")
+        .update({
+          is_complete: boolean,
+          complete_when: null,
+        })
+        .match({ id: id });
+    }
   };
 
   const modifyContent = async (id, title, description) => {

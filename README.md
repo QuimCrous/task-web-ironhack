@@ -107,6 +107,7 @@ Para este proyecto he utilizado HTML
 
 - [ ] Add CompleteWhenDate column to task table
 - [ ] Create a Calendar component to show a calendar the days that Task are completed (color more intense when more task are completed)
+- [ ] Add a Dark Mode to all app
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
