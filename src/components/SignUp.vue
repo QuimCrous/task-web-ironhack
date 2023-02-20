@@ -54,8 +54,8 @@
                 <i
                   class="fas"
                   :class="{
-                    'fa-eye-slash': showPassword,
-                    'fa-eye': !showPassword,
+                    'fa-eye-slash': !showPassword,
+                    'fa-eye': showPassword,
                   }"
                 ></i>
               </span>

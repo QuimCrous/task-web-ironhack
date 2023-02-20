@@ -55,6 +55,11 @@
       </div>
     </div>
   </div>
+  <div
+    class="flex items-center justify-center fixed bottom-0 left-0 z-20 w-full pb-0 mb-0"
+  >
+    <BackToTop class="w-full mb-0" />
+  </div>
 </template>
 
 <script setup>
@@ -65,6 +70,7 @@ import Nav from "../components/Nav.vue";
 import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
 import DeleteModal from "../components/DeleteModal.vue";
+import BackToTop from "../components/BackToTop.vue";
 
 const taskStore = useTaskStore();
 

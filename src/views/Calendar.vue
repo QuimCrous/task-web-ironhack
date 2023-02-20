@@ -5,6 +5,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 import Nav from "../components/Nav.vue";
 import { onMounted, ref, toRefs, watchEffect } from "vue";
 import { useTaskStore } from "../stores/task";
+import BackToTop from "../components/BackToTop.vue";
 
 const completedTasks = ref([]);
 const taskStore = useTaskStore();
@@ -141,6 +142,11 @@ watchEffect(() => {
       alt="status_cat_img"
       class="shadow-2xl rounded-lg mb-5"
     />
+  </div>
+  <div
+    class="flex items-center justify-center fixed bottom-0 left-0 z-20 w-full pb-0 mb-0"
+  >
+    <BackToTop class="w-full mb-0" />
   </div>
 </template>
 <style scoped></style>

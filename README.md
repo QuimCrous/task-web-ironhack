@@ -116,6 +116,7 @@ Para este proyecto he utilizado HTML
 - [x] Add component to show HTTP.cats
 - [x] Add Style to Calendar view
 - [x] Add Style and Disabled option to del/modify task btns
+- [x] Add BackToTop component (button)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
