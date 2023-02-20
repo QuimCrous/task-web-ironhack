@@ -114,6 +114,7 @@ Para este proyecto he utilizado HTML
 
 - [x] Complete tasks from previous days
 - [x] Add component to show HTTP.cats
+- [x] Add Style to Calendar view
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

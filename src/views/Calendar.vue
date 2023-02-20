@@ -112,9 +112,11 @@ watchEffect(() => {
   <div class="p-10">
     <p class="text-2xl text-center pb-2">Completed Tasks Calendar</p>
     <p class="text-xl text-center pb-10">show how many task are completed</p>
-    <FullCalendar :options="calendarOptions" />
+    <div class="p-5 shadow-2xl rounded-lg">
+      <FullCalendar :options="calendarOptions" />
+    </div>
   </div>
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center pt-10">
     <p class="text-2xl text-center pb-2">HTTP.cat</p>
     <p class="text-xl text-center pb-10">
       Learn status codes with this funny cat images
@@ -134,7 +136,11 @@ watchEffect(() => {
         {{ item }}
       </option>
     </select>
-    <img :src="imageStatus" alt="status_cat_img" class="p-5" />
+    <img
+      :src="imageStatus"
+      alt="status_cat_img"
+      class="shadow-2xl rounded-lg mb-5"
+    />
   </div>
 </template>
 <style scoped></style>
