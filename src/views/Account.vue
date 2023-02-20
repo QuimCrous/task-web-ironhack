@@ -109,6 +109,7 @@ async function getProfile() {
   name.value = userStore.profile.name;
   nick_name.value = userStore.profile.nick_name;
   loadedValue.value = true;
+  
 }
 
 async function signOut() {
