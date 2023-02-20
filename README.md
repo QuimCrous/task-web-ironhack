@@ -90,7 +90,7 @@ Para este proyecto he utilizado HTML
 - [x] Add a Modal component to Delete a Task
 - [x] Style Account and Edit views
 - [x] Add Logic to user store to upload images to avatar storage in supabase
-- [ ] Think what to add a task web application
+- [x] Think what to add a task web application
 
 #### Day Five
 
@@ -105,9 +105,15 @@ Para este proyecto he utilizado HTML
 
 ###### Thursday 16, February 2023
 
-- [ ] Add CompleteWhenDate column to task table
-- [ ] Create a Calendar component to show a calendar the days that Task are completed (color more intense when more task are completed)
-- [ ] Add a Dark Mode to all app
+- [x] Add CompleteWhenDate column to task table
+- [x] Create a Calendar component to show a calendar the days that Task are completed (color more intense when more task are completed)
+
+#### Day Seven
+
+###### Monday 20, February 2023
+
+- [x] Complete tasks from previous days
+- [x] Add component to show HTTP.cats
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
