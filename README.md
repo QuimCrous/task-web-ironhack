@@ -3,9 +3,9 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <!-- <img src="./resources/readMe/wu.png" alt="Logo" width="80" height="80"> -->
+  <img src="./public/Icono_letras.png" alt="Logo" width="200" height="180">
   <h2 align="center">Task Web Page</h2>
-  <!-- <a href="https://midterm-ironhack-jade.vercel.app">Visit Website</a> -->
+  <a href="https://task-web-ironhack.vercel.app/auth/login">Visit Website</a>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -115,6 +115,7 @@ Para este proyecto he utilizado HTML
 - [x] Complete tasks from previous days
 - [x] Add component to show HTTP.cats
 - [x] Add Style to Calendar view
+- [x] Add Style and Disabled option to del/modify task btns
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

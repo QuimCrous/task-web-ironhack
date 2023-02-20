@@ -16,7 +16,8 @@
     <div class="flex justify-around">
       <button
         @click="toggleModal"
-        class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+        class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 disabled:opacity-75"
+        :disabled="disableBtn"
       >
         Delete
       </button>
@@ -28,7 +29,8 @@
       </button>
       <button
         @click="modifyTaskShow"
-        class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900"
+        class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900 disabled:opacity-75"
+        :disabled="disableBtn"
       >
         Modify task
       </button>
@@ -89,6 +91,7 @@ const modifyTaskBool = ref(false);
 const title = ref("");
 const description = ref("");
 const isCompleted = ref("");
+const disableBtn = ref(false);
 const condicion = ref(false);
 const emits = defineEmits(["emitDeleteComplete"]);
 
@@ -144,8 +147,10 @@ const modifyContent = async () => {
 watchEffect(() => {
   if (boolean.value === true) {
     isCompleted.value = "text-green-600 line-through";
+    disableBtn.value = true;
   } else {
     isCompleted.value = "";
+    disableBtn.value = false;
   }
 });
 </script>

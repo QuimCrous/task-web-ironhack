@@ -38,6 +38,12 @@
         <div
           class="flex flex-row flex-wrap justify-around w-[400px] pl-2 md:w-auto md:pl-10 md:pr-10"
         >
+          <img
+            v-if="showTasks.length === 0"
+            src="https://i.imgflip.com/2adszq.jpg"
+            alt=""
+            class="rounded-lg p-5"
+          />
           <TaskItem
             v-for="task in showTasks"
             :key="task.id"
