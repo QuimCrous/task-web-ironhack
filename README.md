@@ -118,6 +118,12 @@ Para este proyecto he utilizado HTML
 - [x] Add Style and Disabled option to del/modify task btns
 - [x] Add BackToTop component (button)
 
+#### Day Seven
+
+###### Monday 20, February 2023
+
+- [ ] Change logic to use less fetch in task store.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Acerca de mi -->
