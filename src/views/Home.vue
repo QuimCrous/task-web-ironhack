@@ -84,8 +84,11 @@ const showTasks = ref([]);
 
 // Creamos una función que conecte a la store para conseguir las tareas de supabase
 const getTasks = async () => {
-  tasks.value = await taskStore.fetchTasks();
-  completedTasks.value = await taskStore.fetchCompletedTasks();
+  await taskStore.fetchTasks();
+  tasks.value = taskStore.tasksArr;
+  completedTasks.value = taskStore.completeArr;
+  //console.log(completedTasks.value);
+  //completedTasks.value = await taskStore.fetchCompletedTasks();
   incompletedTasks.value = await taskStore.fetchIncompletedTasks();
 };
 

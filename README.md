@@ -15,7 +15,7 @@
     <li>
       <a href="#about-the-project">About the Project</a>
       <ul>
-        <li><a href="#construido-con">Build with</a></li>
+        <li><a href="#build-with">Build with</a></li>
       </ul>
     </li>
     <li>
@@ -26,12 +26,16 @@
         <li><a href="#day-two">Wednesday 08, February 2023</a></li>
         <li><a href="#day-three">Thursday 09, February 2023</a></li>
         <li><a href="#day-four">Friday 10, February 2023</a></li>
+        <li><a href="#day-five">Wednesday 15, February 2023</a></li>
+        <li><a href="#day-six">Thursday 16, February 2023</a></li>
+        <li><a href="#day-seven">Monday 20, February 2023</a></li>
+        <li><a href="#day-eight">Tuesday 21, February 2023</a></li>
       </ul>
     </li>
-    <li><a href="#acerca">Acerca</a></li>
-    <li><a href="#agradecimientos">Agradecimientos</a></li>
-    <li><a href="#desafío-técnico">Desafío Técnico</a></li>
-    <li><a href="#grande-error">Grande Error</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#special-thanks">Special Thanks</a></li>
+    <li><a href="#technical-challenge">Technical Challenge</a></li>
+    <li><a href="#big-mistake">Big Mistake</a></li>
   </ol>
 </details>
 <hr>
@@ -40,15 +44,27 @@
 
 ## About the Project
 
-<!-- <img src="./resources/readMe/screenshot.png" alt="Logo" width="100%" height="50%"> -->
+<img src="./public/web_capture.PNG" alt="Logo" width="100%" height="50%">
 
-Éste es mi proyecto de página web
+This is my finalterm project of the FrontEnd web development bootcamp from Ironhack. The purpose of this project is to demonstrate the knowledge acquired as a web developer and teach everything I have learned throughout the course.
+
+I have created the website using the VUE framework and the Tailwind library to style it, as well as some other libraries to add functionality.
+
+The web has:
+
+- A SignUp and SignIn components that allows the user to register and connects to the database in Supabase to save the user.
+
+- A Home view showing the Nav component, NewTask, and TaskItem. This allows the user to move between the different views with the Nav, add new tasks and display the tasks that are saved in the database that are linked to the user.
+
+- A Profile view that displays an avatar and other user data and is connected to the Edit view that allows you to upload an image to change the avatar and other fields displayed in the Profile view.
+
+- A Calendar view that, apart from the Nav, has a calendar that shows the days and if tasks have been completed that day, the color of that day is highlighted. It also has a dropdown selector that shows us an image that represents a status response from HTTP calls. This is connected to the HTTP.cats website.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Construido Con
+### Build with
 
-Para este proyecto he utilizado HTML
+For this project I have used the <a href="https://vuejs.org">VUE</a> framework (HTML, JS) together with the <a href="https://tailwindcss.com">Tailwind</a> (CSS) library, as well as other libraries such as fullcalendar. The project is connected to a <a href="https://supabase.com">Supabase</a> database and the <a href="https://vercel.com">Vercel</a> page is used to host the project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -118,17 +134,19 @@ Para este proyecto he utilizado HTML
 - [x] Add Style and Disabled option to del/modify task btns
 - [x] Add BackToTop component (button)
 
-#### Day Seven
+#### Day Eight
 
-###### Monday 20, February 2023
+###### Tuesday 21, February 2023
 
 - [ ] Change logic to use less fetch in task store.
+- [x] Complete Readme
+- [ ] Create project presentation
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Acerca de mi -->
 
-## Acerca
+## About
 
 Joaquim Crous - [@raistbear](https://twitter.com/raistbear) - joaquimcrous@gmail.com
 
@@ -136,7 +154,7 @@ Project Link: [https://github.com/QuimCrous](https://github.com/QuimCrous/midter
 
 Presentation Link: [https://www.linkedin.com/in/joaquim-crous-mayné/](https://www.linkedin.com/in/joaquim-crous-mayné/)
 
-#### Experiencia académica
+#### Academic experience
 
 - Backend Web Development Java - Ironhack Barcelona
 
@@ -146,23 +164,30 @@ Presentation Link: [https://www.linkedin.com/in/joaquim-crous-mayné/](https://w
 
 <!-- ACKNOWLEDGMENTS -->
 
-## Agradecimientos
+## Special Thanks
 
-- Agradecer a todos mis compañeros de bootcamp por el apoyo y por compartir información entre nosotros para poder mejorar nuestros proyectos.
-- A nuestros profesores por ayudarnos en nuestras dudas y darnos soporte.
-- A mi hermano por facilitarme la tarea de buscar recursos y ayudarme a plantear la logica de ciertos scripts.
+- Thank all my bootcamp colleagues for the support and for sharing information with each other in order to improve our projects.
+- To our teachers for helping us with our doubts and giving us support.
+- To my brother for facilitating the task of searching for resources and helping me to propose the logic of certain scripts.
+- To my partner and friends for trusting me and my potential.
 - [Páginas de consulta](https://www.w3schools.com/js/default.asp)
+- [Páginas de ChatGPT](https://openai.com/blog/chatgpt/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Desafío Técnico
+## Technical Challenge
 
 - Uno de los grandes problemas
+- What I consider to have been a challenge is completing a website with VUE and learning how to use the Tailwind library. Being the styling of the websites my biggest complication, Tailwind has solved it allowing me to focus more on the logical part.
+- Also the use of fullcalendar has been complicated but following the documentation of the library plus the help of teachers I have achieved the goal that I had set myself.
+- Finally, the problem that has cost me the most is to think about what utilities to add to the project to show my skills while being logical to put on the web.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Grande Error
+## Big Mistake
 
-Mi gran error
+My big mistake in this project has been less than in the previous project. I have been more aware of the skills that I have and I have tried to keep things on my level. Although the part of creating the calendar has been the most complicated and still visually it is not what I had in mind.
+
+Even so, I have achieved an acceptable result and it does the functionality that I wanted.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
