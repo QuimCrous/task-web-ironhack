@@ -8,7 +8,7 @@
         <h3 class="mr-4">Your account:</h3>
         <router-link to="/account">Account</router-link>
       </div>
-      <NewTask />
+      <NewTask @refresh-tasks="getTasks" />
       <div class="mt-24 pt-10 pb-4 mb-8 pb-16 rounded-lg bg-sky-200 shadow-2xl">
         <h1 class="block mb-2 text-3xl font-medium text-blue-900 text-center">
           Tasks
@@ -87,9 +87,7 @@ const getTasks = async () => {
   await taskStore.fetchTasks();
   tasks.value = taskStore.tasksArr;
   completedTasks.value = taskStore.completeArr;
-  //console.log(completedTasks.value);
-  //completedTasks.value = await taskStore.fetchCompletedTasks();
-  incompletedTasks.value = await taskStore.fetchIncompletedTasks();
+  incompletedTasks.value = taskStore.incompleteArr;
 };
 
 const showDeleteComplete = () => {
@@ -113,9 +111,9 @@ watchEffect(() => {
 
 getTasks();
 
-onUpdated(() => {
-  getTasks();
-});
+// onUpdated(() => {
+//   getTasks();
+// });
 </script>
 
 <style></style>

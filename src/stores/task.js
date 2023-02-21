@@ -15,7 +15,8 @@ export const useTaskStore = defineStore("tasks", () => {
       .select("*")
       .order("id", { ascending: false });
     tasksArr.value = tasks;
-    completeArr.value = tasks.filter((task) => task.is_complete === true);
+    completeArr.value = tasks.filter((task) => task.is_complete);
+    incompleteArr.value = tasks.filter((task) => !task.is_complete);
     return tasksArr.value;
   };
 
@@ -24,16 +25,6 @@ export const useTaskStore = defineStore("tasks", () => {
       .from("tasks")
       .select("*")
       .eq("is_complete", true)
-      .order("id", { ascending: false });
-    tasksArr.value = tasks;
-    return tasksArr.value;
-  };
-
-  const fetchIncompletedTasks = async () => {
-    const { data: tasks } = await supabase
-      .from("tasks")
-      .select("*")
-      .eq("is_complete", false)
       .order("id", { ascending: false });
     tasksArr.value = tasks;
     return tasksArr.value;
@@ -117,6 +108,7 @@ export const useTaskStore = defineStore("tasks", () => {
     modifyIsCompleted,
     modifyContent,
     fetchCompletedTasks,
-    fetchIncompletedTasks,
+    completeArr,
+    incompleteArr,
   };
 });

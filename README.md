@@ -138,7 +138,7 @@ For this project I have used the <a href="https://vuejs.org">VUE</a> framework (
 
 ###### Tuesday 21, February 2023
 
-- [ ] Change logic to use less fetch in task store.
+- [x] Change logic to use less fetch in task store.
 - [x] Complete Readme
 - [ ] Create project presentation
 
@@ -177,7 +177,6 @@ Presentation Link: [https://www.linkedin.com/in/joaquim-crous-mayné/](https://w
 
 ## Technical Challenge
 
-- Uno de los grandes problemas
 - What I consider to have been a challenge is completing a website with VUE and learning how to use the Tailwind library. Being the styling of the websites my biggest complication, Tailwind has solved it allowing me to focus more on the logical part.
 - Also the use of fullcalendar has been complicated but following the documentation of the library plus the help of teachers I have achieved the goal that I had set myself.
 - Finally, the problem that has cost me the most is to think about what utilities to add to the project to show my skills while being logical to put on the web.
