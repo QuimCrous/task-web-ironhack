@@ -146,11 +146,12 @@ For this project I have used the <a href="https://vuejs.org">VUE</a> framework (
 
 ###### Wednesday 22, February 2023
 
-- [ ] Create project presentation
+- [x] Create project presentation
 - [x] Add Footer component
 - [x] Rezise cards in Home view
 - [x] Add priority to tasks
 - [x] Change bg TaskItem depending on the priority or completed
+- [x] Minor style changes
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

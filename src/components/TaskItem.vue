@@ -16,24 +16,25 @@
     <div class="flex justify-around">
       <button
         @click="toggleModal"
-        class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 disabled:opacity-75"
+        class="focus:outline-none text-white hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 disabled:opacity-75"
         :disabled="disableBtn"
       >
-        Delete
+        <img src="../assets/delete-1-svgrepo-com.svg" alt="" />
+      </button>
+
+      <button
+        @click="modifyTaskShow"
+        class="focus:outline-none text-white hover:bg-yellow-500 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900 disabled:opacity-75"
+        :disabled="disableBtn"
+      >
+        <img src="../assets/write-svgrepo-com.svg" alt="" />
       </button>
       <button
         @click="modifyIsCompleted"
-        class="focus:outline-none text-white bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 disabled:opacity-75"
+        class="focus:outline-none text-white hover:bg-green-800 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 disabled:opacity-75"
         :disabled="modifyDisableModBtn"
       >
-        Complete Task
-      </button>
-      <button
-        @click="modifyTaskShow"
-        class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900 disabled:opacity-75"
-        :disabled="disableBtn"
-      >
-        Modify task
+        <img src="../assets/complete-svgrepo-com.svg" alt="" />
       </button>
     </div>
     <div v-if="modifyTaskBool">
@@ -130,13 +131,13 @@ watchEffect(() => {
   } else {
     watchEffect(() => {
       if (tagCategory.value === "normal") {
-        bgCategory.value = "bg-sky-300";
+        bgCategory.value = "bg-yellow-300";
       }
       if (tagCategory.value === "high") {
-        bgCategory.value = "bg-red-300";
+        bgCategory.value = "bg-red-400";
       }
       if (tagCategory.value === "low") {
-        bgCategory.value = "bg-sky-100";
+        bgCategory.value = "bg-green-200";
       }
     });
   }
