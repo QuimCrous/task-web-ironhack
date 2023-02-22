@@ -150,7 +150,7 @@ For this project I have used the <a href="https://vuejs.org">VUE</a> framework (
 
 Joaquim Crous - [@raistbear](https://twitter.com/raistbear) - joaquimcrous@gmail.com
 
-Project Link: [https://github.com/QuimCrous](https://github.com/QuimCrous/midterm-ironhack)
+Project Link: [https://github.com/QuimCrous](https://github.com/QuimCrous/task-web-ironhack)
 
 Presentation Link: [https://www.linkedin.com/in/joaquim-crous-mayné/](https://www.linkedin.com/in/joaquim-crous-mayné/)
 
@@ -168,10 +168,12 @@ Presentation Link: [https://www.linkedin.com/in/joaquim-crous-mayné/](https://w
 
 - Thank all my bootcamp colleagues for the support and for sharing information with each other in order to improve our projects.
 - To our teachers for helping us with our doubts and giving us support.
+- To my partner for helping me with the design of the logo and cheering me up.
 - To my brother for facilitating the task of searching for resources and helping me to propose the logic of certain scripts.
-- To my partner and friends for trusting me and my potential.
-- [Páginas de consulta](https://www.w3schools.com/js/default.asp)
-- [Páginas de ChatGPT](https://openai.com/blog/chatgpt/)
+- To my friends for trusting me and my potential.
+- [Página de consulta](https://www.w3schools.com/js/default.asp)
+- [Página de ChatGPT](https://openai.com/blog/chatgpt/)
+- [Página de OMOURO studio (diseño de logos)](https://omourostudio.wordpress.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

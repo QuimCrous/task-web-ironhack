@@ -56,9 +56,9 @@
     </div>
   </div>
   <div
-    class="flex items-center justify-center fixed bottom-0 left-0 z-20 w-full pb-0 mb-0"
+    class="flex items-center justify-center fixed bottom-0 left-0 z-20 w-full p-0 m-0"
   >
-    <BackToTop class="w-full mb-0" />
+    <BackToTop class="w-full m-0 p-0" />
   </div>
 </template>
 
