@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col justify-center">
+  <div class="flex flex-col justify-center" :class="bgCategory">
     <h3
       class="block mb-4 text-3xl font-medium text-blue-900 text-center"
       :class="isCompleted"
@@ -23,7 +23,8 @@
       </button>
       <button
         @click="modifyIsCompleted"
-        class="focus:outline-none text-white bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+        class="focus:outline-none text-white bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 disabled:opacity-75"
+        :disabled="modifyDisableModBtn"
       >
         Complete Task
       </button>
@@ -48,6 +49,22 @@
           v-model="title"
           required
         />
+      </div>
+      <div class="mb-6">
+        <label
+          for="priority"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >Select a priority category</label
+        >
+        <select
+          id="priority"
+          v-model="tagCategory"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        >
+          <option value="high">High Priority</option>
+          <option value="normal">Normal</option>
+          <option value="low">Low Priority</option>
+        </select>
       </div>
       <label
         for="description"
@@ -92,14 +109,42 @@ const title = ref("");
 const description = ref("");
 const isCompleted = ref("");
 const disableBtn = ref(false);
+const modifyDisableBtn = ref(false);
+const modifyDisableModBtn = ref(false);
 const condicion = ref(false);
 const emits = defineEmits(["emitDeleteComplete"]);
+const tagCategory = ref(props.task.priority);
+const bgCategory = ref("");
 
 watchEffect(() => {
   if (props.task.is_complete === true) {
     boolean.value = true;
   } else {
     boolean.value = false;
+  }
+});
+
+watchEffect(() => {
+  if (boolean.value === true) {
+    bgCategory.value = "bg-green-300";
+  } else {
+    watchEffect(() => {
+      if (tagCategory.value === "normal") {
+        bgCategory.value = "bg-sky-300";
+      }
+      if (tagCategory.value === "high") {
+        bgCategory.value = "bg-red-300";
+      }
+      if (tagCategory.value === "low") {
+        bgCategory.value = "bg-sky-100";
+      }
+    });
+  }
+});
+
+watchEffect(() => {
+  if (isCompleted.value === true) {
+    bgCategory.value = "bg-green-200";
   }
 });
 
@@ -133,15 +178,24 @@ const modifyIsCompleted = async () => {
 
 const modifyTaskShow = () => {
   modifyTaskBool.value = !modifyTaskBool.value;
+  modifyDisableBtn.value = !modifyDisableBtn.value;
+  console.log("proba", modifyDisableBtn.value);
   console.log(modifyTaskBool.value);
 };
 
 const modifyContent = async () => {
-  await taskStore.modifyContent(props.task.id, title.value, description.value);
+  await taskStore.modifyContent(
+    props.task.id,
+    title.value,
+    description.value,
+    tagCategory.value
+  );
+  console.log(tagCategory.value);
   console.log("click");
   title.value = "";
   description.value = "";
   modifyTaskBool.value = !modifyTaskBool.value;
+  modifyDisableBtn.value = !modifyDisableBtn.value;
 };
 
 watchEffect(() => {
@@ -150,7 +204,15 @@ watchEffect(() => {
     disableBtn.value = true;
   } else {
     isCompleted.value = "";
-    disableBtn.value = false;
+    watchEffect(() => {
+      if (modifyDisableBtn.value === true) {
+        modifyDisableModBtn.value = true;
+        disableBtn.value = true;
+      } else {
+        modifyDisableModBtn.value = false;
+        disableBtn.value = false;
+      }
+    });
   }
 });
 </script>

@@ -30,7 +30,7 @@ export const useTaskStore = defineStore("tasks", () => {
     return tasksArr.value;
   };
 
-  const addTask = async (title, description) => {
+  const addTask = async (title, description, priority) => {
     console.log(useUserStore().user.id);
     const { data, error } = await supabase.from("tasks").insert([
       {
@@ -38,6 +38,7 @@ export const useTaskStore = defineStore("tasks", () => {
         title: title,
         is_complete: false,
         description: description,
+        priority: priority,
       },
     ]);
   };
@@ -65,13 +66,14 @@ export const useTaskStore = defineStore("tasks", () => {
     }
   };
 
-  const modifyContent = async (id, title, description) => {
+  const modifyContent = async (id, title, description, priority) => {
     if (title !== "" && description !== "") {
       const { data, error } = await supabase
         .from("tasks")
         .update({
           title: title,
           description: description,
+          priority: priority,
         })
         .match({ id: id });
     }
@@ -81,6 +83,7 @@ export const useTaskStore = defineStore("tasks", () => {
         .from("tasks")
         .update({
           description: description,
+          priority: priority,
         })
         .match({ id: id });
     }
@@ -90,6 +93,16 @@ export const useTaskStore = defineStore("tasks", () => {
         .from("tasks")
         .update({
           title: title,
+          priority: priority,
+        })
+        .match({ id: id });
+    }
+    if (title === "" && description === "") {
+      console.log("test3");
+      const { data, error } = await supabase
+        .from("tasks")
+        .update({
+          priority: priority,
         })
         .match({ id: id });
     }

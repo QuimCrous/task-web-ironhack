@@ -6,6 +6,7 @@ import Nav from "../components/Nav.vue";
 import { onMounted, ref, toRefs, watchEffect } from "vue";
 import { useTaskStore } from "../stores/task";
 import BackToTop from "../components/BackToTop.vue";
+import Footer from "../components/Footer.vue";
 
 const completedTasks = ref([]);
 const taskStore = useTaskStore();
@@ -143,10 +144,11 @@ watchEffect(() => {
       class="shadow-2xl rounded-lg mb-5"
     />
   </div>
-  <div
-    class="flex items-center justify-center fixed bottom-0 left-0 z-20 w-full pb-0 mb-0"
-  >
-    <BackToTop class="w-full mb-0" />
+  <div>
+    <Footer />
+  </div>
+  <div class="flex items-center justify-center w-full p-0 m-0">
+    <BackToTop class="w-full m-0 p-0" />
   </div>
 </template>
 <style scoped></style>

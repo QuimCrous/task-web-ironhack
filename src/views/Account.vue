@@ -78,6 +78,9 @@
       </div>
     </div>
   </div>
+  <div class="fixed bottom-0 left-0 w-full">
+    <Footer />
+  </div>
 </template>
 
 <script setup>
@@ -86,6 +89,7 @@ import { onMounted, ref, toRefs } from "vue";
 import { useUserStore } from "../stores/user";
 import Nav from "../components/Nav.vue";
 import { useRouter } from "vue-router";
+import Footer from "../components/Footer.vue";
 
 const userStore = useUserStore();
 

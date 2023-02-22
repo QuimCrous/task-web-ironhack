@@ -1,6 +1,5 @@
 <template>
   <div class="wrapper">
-    <!-- <Prueba /> -->
     <Nav />
 
     <div class="flex flex-col mt-8 mb-8 md:m-8 justify-center items-center">
@@ -8,8 +7,10 @@
         <h3 class="mr-4">Your account:</h3>
         <router-link to="/account">Account</router-link>
       </div>
-      <NewTask @refresh-tasks="getTasks" />
-      <div class="mt-24 pt-10 pb-4 mb-8 pb-16 rounded-lg bg-sky-200 shadow-2xl">
+      <NewTask @refresh-tasks="getTasks" class="md:w-[800px]" />
+      <div
+        class="mt-24 pt-10 pb-4 mb-8 pb-16 rounded-lg bg-sky-200 shadow-2xl md:w-[800px]"
+      >
         <h1 class="block mb-2 text-3xl font-medium text-blue-900 text-center">
           Tasks
         </h1>
@@ -27,7 +28,40 @@
             <option selected value="all">All</option>
             <option value="completed">Completed</option>
             <option value="incompleted">Incompleted</option>
+            <option value="high">High Priority</option>
+            <option value="normal">Normal Priority</option>
+            <option value="low">Low Priority</option>
           </select>
+        </div>
+        <div class="flex flex-row justify-around items-center">
+          <span
+            class="flex items-center text-sm font-medium text-gray-900 dark:text-white"
+            ><span
+              class="flex w-2.5 h-2.5 bg-green-300 rounded-full mr-1.5 flex-shrink-0"
+            ></span
+            >Completed</span
+          >
+          <span
+            class="flex items-center text-sm font-medium text-gray-900 dark:text-white"
+            ><span
+              class="flex w-2.5 h-2.5 bg-red-300 rounded-full mr-1.5 flex-shrink-0"
+            ></span
+            >High Priority</span
+          >
+          <span
+            class="flex items-center text-sm font-medium text-gray-900 dark:text-white"
+            ><span
+              class="flex w-2.5 h-2.5 bg-sky-300 rounded-full mr-1.5 flex-shrink-0"
+            ></span
+            >Normal Priority</span
+          >
+          <span
+            class="flex items-center text-sm font-medium text-gray-900 dark:text-white"
+            ><span
+              class="flex w-2.5 h-2.5 bg-sky-100 rounded-full mr-1.5 flex-shrink-0"
+            ></span
+            >Low Priority</span
+          >
         </div>
         <div
           v-if="showDelete"
@@ -48,16 +82,17 @@
             v-for="task in showTasks"
             :key="task.id"
             :task="task"
-            class="p-4 m-4 w-80 bg-sky-300 rounded-lg shadow-2xl"
+            class="p-4 m-4 w-80 rounded-lg shadow-2xl"
             @emit-delete-complete="showDeleteComplete"
           />
         </div>
       </div>
     </div>
   </div>
-  <div
-    class="flex items-center justify-center fixed bottom-0 left-0 z-20 w-full p-0 m-0"
-  >
+  <div>
+    <Footer />
+  </div>
+  <div class="flex items-center justify-center w-full p-0 m-0">
     <BackToTop class="w-full m-0 p-0" />
   </div>
 </template>
@@ -71,6 +106,7 @@ import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
 import DeleteModal from "../components/DeleteModal.vue";
 import BackToTop from "../components/BackToTop.vue";
+import Footer from "../components/Footer.vue";
 
 const taskStore = useTaskStore();
 
@@ -80,6 +116,7 @@ const showDelete = ref(false);
 const completedTasks = ref([]);
 const incompletedTasks = ref([]);
 const showSelector = ref("all");
+const prioritySelector = ref("all");
 const showTasks = ref([]);
 
 // Creamos una función que conecte a la store para conseguir las tareas de supabase
@@ -101,19 +138,34 @@ watchEffect(() => {
   if (showSelector.value === "completed") {
     showTasks.value = completedTasks.value;
   }
+  if (showSelector.value === "incompleted") {
+    showTasks.value = incompletedTasks.value;
+  }
   if (showSelector.value === "all") {
     showTasks.value = tasks.value;
   }
-  if (showSelector.value === "incompleted") {
-    showTasks.value = incompletedTasks.value;
+  if (showSelector.value === "high") {
+    showTasks.value = incompletedTasks.value.filter(
+      (task) => task.priority === "high"
+    );
+  }
+  if (showSelector.value === "normal") {
+    showTasks.value = incompletedTasks.value.filter(
+      (task) => task.priority === "normal"
+    );
+  }
+  if (showSelector.value === "low") {
+    showTasks.value = incompletedTasks.value.filter(
+      (task) => task.priority === "low"
+    );
   }
 });
 
 getTasks();
 
-// onUpdated(() => {
-//   getTasks();
-// });
+onUpdated(() => {
+  getTasks();
+});
 </script>
 
 <style></style>

@@ -30,6 +30,7 @@
         <li><a href="#day-six">Thursday 16, February 2023</a></li>
         <li><a href="#day-seven">Monday 20, February 2023</a></li>
         <li><a href="#day-eight">Tuesday 21, February 2023</a></li>
+        <li><a href="#day-nine">Wednesday 22, February 2023</a></li>        
       </ul>
     </li>
     <li><a href="#about">About</a></li>
@@ -140,7 +141,16 @@ For this project I have used the <a href="https://vuejs.org">VUE</a> framework (
 
 - [x] Change logic to use less fetch in task store.
 - [x] Complete Readme
+
+#### Day Nine
+
+###### Wednesday 22, February 2023
+
 - [ ] Create project presentation
+- [x] Add Footer component
+- [x] Rezise cards in Home view
+- [x] Add priority to tasks
+- [x] Change bg TaskItem depending on the priority or completed
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
