@@ -152,6 +152,7 @@ For this project I have used the <a href="https://vuejs.org">VUE</a> framework (
 - [x] Add priority to tasks
 - [x] Change bg TaskItem depending on the priority or completed
 - [x] Minor style changes
+- [x] Added Time component to show actual time
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

@@ -7,6 +7,7 @@ import { onMounted, ref, toRefs, watchEffect } from "vue";
 import { useTaskStore } from "../stores/task";
 import BackToTop from "../components/BackToTop.vue";
 import Footer from "../components/Footer.vue";
+import Time from "../components/Time.vue";
 
 const completedTasks = ref([]);
 const taskStore = useTaskStore();
@@ -111,6 +112,9 @@ watchEffect(() => {
 
 <template>
   <Nav />
+  <div class="flex justify-center text-4xl">
+    <Time />
+  </div>
   <div class="p-10">
     <p class="text-2xl text-center pb-2">Completed Tasks Calendar</p>
     <p class="text-xl text-center pb-10">show how many task are completed</p>

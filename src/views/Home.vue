@@ -44,21 +44,21 @@
           <span
             class="flex items-center text-sm font-medium text-gray-900 dark:text-white"
             ><span
-              class="flex w-2.5 h-2.5 bg-red-300 rounded-full mr-1.5 flex-shrink-0"
+              class="flex w-2.5 h-2.5 bg-red-400 rounded-full mr-1.5 flex-shrink-0"
             ></span
             >High Priority</span
           >
           <span
             class="flex items-center text-sm font-medium text-gray-900 dark:text-white"
             ><span
-              class="flex w-2.5 h-2.5 bg-sky-300 rounded-full mr-1.5 flex-shrink-0"
+              class="flex w-2.5 h-2.5 bg-yellow-300 rounded-full mr-1.5 flex-shrink-0"
             ></span
             >Normal Priority</span
           >
           <span
             class="flex items-center text-sm font-medium text-gray-900 dark:text-white"
             ><span
-              class="flex w-2.5 h-2.5 bg-sky-100 rounded-full mr-1.5 flex-shrink-0"
+              class="flex w-2.5 h-2.5 bg-green-200 rounded-full mr-1.5 flex-shrink-0"
             ></span
             >Low Priority</span
           >
