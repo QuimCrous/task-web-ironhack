@@ -48,6 +48,9 @@
         placeholder="Add a Task Description - Look up Kendrick Lamar's FEAR album on spotify and listen to the whole album."
       ></textarea>
     </div>
+    <div v-if="showErrorMessage">
+      <p class="bg-red-300 p-2">{{ errorMessage }}</p>
+    </div>
     <div class="mb-4 mt-6">
       <button
         @click="addTask"
